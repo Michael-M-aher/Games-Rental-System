@@ -37,6 +37,14 @@ namespace Games_Rental_System
                 btnRent.Visible = true;
                 btnReturn.Visible = true;
             }
+            if ((int)_game["G_AMOUNT"] == 0)
+            {
+                btnRent.Enabled = false;
+            }
+            else
+            {
+                btnRent.Enabled = true;
+            }
         }
 
         private void btnRent_Click(object sender, EventArgs e)
@@ -74,6 +82,14 @@ namespace Games_Rental_System
                     command.ExecuteNonQuery();
                     MessageBox.Show("Game rented successfully");
                     _amount--;
+                    if (_amount == 0)
+                    {
+                        btnRent.Enabled = false;
+                    }
+                    else
+                    {
+                        btnRent.Enabled = true;
+                    }
                     TAmount.Text = _amount.ToString() + " CDs";
 
                 }
@@ -125,7 +141,15 @@ namespace Games_Rental_System
                         command.ExecuteNonQuery();
                         MessageBox.Show("Game Returned successfully and you should pay " + _pay.ToString() + "$ for renting the game for " + totalDays.ToString() + " days");
                         _amount++;
-                        TAmount.Text = _amount.ToString()+" CDs";
+                        if (_amount == 0)
+                        {
+                            btnRent.Enabled = false;
+                        }
+                        else
+                        {
+                            btnRent.Enabled = true;
+                        }
+                    TAmount.Text = _amount.ToString()+" CDs";
 
                 }
                 else

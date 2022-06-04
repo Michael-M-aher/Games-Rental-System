@@ -59,7 +59,7 @@ namespace Games_Rental_System
                 string _clientPhone = inpClientPhone.Text.ToString();
                 string _clientFirstName = inpClientFirstName.Text.ToString();
                 string _clientSecondName = inpClientSecondName.Text.ToString();
-                string _Query = "SELECT C_USERNAME FROM CLIENT WHERE C_PHONENUM=@username;";
+                string _Query = "SELECT C_USERNAME FROM CLIENT WHERE C_USERNAME=@username;";
                 string _Query2 = "insert into CLIENT (C_USERNAME,C_PHONENUM,C_FIRSTNAME,C_LASTNAME,C_PASSWORD) VALUES (@username,@phone,@firstName,@lastName,@password);";
                 SqlCommand command;
                 command = new SqlCommand(_Query, con);

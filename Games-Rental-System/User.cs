@@ -8,7 +8,7 @@ namespace Games_Rental_System
 {
     internal class User
     {
-        static string UsernName = "admin";
+        static string UsernName = "michael";
         static bool AdminEnabled = false;
         public static string User_Name
         {
